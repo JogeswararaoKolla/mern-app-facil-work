@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Jumbotron from "./components/Jumbotron";
+import Nav from "./components/Nav";
+import { Container, Row, Col } from "./components/Grid";
+import Worker from "./components/Worker"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    state = {
+        companyName: "",
+        workerName: "",
+        date: ""
+    }
+
+    render() {
+        return (
+           <Container>
+               <Nav />
+               <Jumbotron />
+               <Row>
+                   <Col size="md-12">
+                       <Worker />
+                   </Col>
+               </Row>
+           </Container>
+            
+        )
+    }
 }
 
 export default App;
