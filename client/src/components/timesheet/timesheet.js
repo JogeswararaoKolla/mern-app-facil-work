@@ -20,7 +20,7 @@ class TimeSheet extends React.Component {
                             <th>Project</th>
                             <th>Work Assigned</th>
                             <th>Allotted Hours</th>
-                            <th>Worked Hours</th>
+                            <th>Hours Worked</th>
                             <th>Current Status</th>
                             </tr>
                         </thead>
