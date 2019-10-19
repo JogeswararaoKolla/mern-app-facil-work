@@ -28,7 +28,7 @@ class LoginForm extends Component {
         event.preventDefault()
         console.log('handleSubmit')
 
-        axios.post('/user/login', {
+        axios.get('/api/users', {
             username: this.state.username,
             firstname: this.state.firstName,
             lastName: this.state.lastName,
@@ -45,7 +45,7 @@ class LoginForm extends Component {
                     })
                     // update the state to redirect to home
                     this.setState({
-                        redirectTo: '/'
+                        redirectTo: '/welcome'
                     })
                 }
             }).catch(error => {
@@ -73,7 +73,7 @@ class LoginForm extends Component {
                                     name="username"
                                     placeholder="Username"
                                     value={this.state.username}
-                                    onChange={this.hanldeChange}
+                                    onChange={this.handleChange}
                                 />
                             </div>
                         </div>
@@ -87,7 +87,7 @@ class LoginForm extends Component {
                                     type="password"
                                     name="password"
                                     value={this.state.password}
-                                    onChange={this.hanldeChange}
+                                    onChange={this.handleChange}
                                 />
                             </div>
                         </div>

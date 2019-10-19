@@ -5,7 +5,7 @@ import LoginForm from "./components/Signup-Login/login-form";
 import Nav from "./components/Nav";
 import Signup from "./components/Signup-Login/sign-up";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
+import Welcome from "./components/Welcome";
 
 class App extends Component {
     state = {
@@ -21,11 +21,11 @@ class App extends Component {
                     <Nav />
                     <Route exact path="/" component={LoginForm} />
                     <Route exact path="/sign-up" component={Signup} />
+                    <Route exact path="/welcome" component={Welcome} />
                 </Container>
             </Router>
+        )
+    }
+}
 
-                )
-            }
-        }
-        
 export default App;
