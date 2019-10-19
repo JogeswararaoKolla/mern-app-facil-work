@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Routes from './router'
+import Routes from './router';
+import Manager1 from './components/Manager1';
 
 
 class App extends Component {
@@ -11,7 +12,7 @@ class App extends Component {
 
     render() {
         return (
-             <Routes />
+             <Routes/>
         )
     }
 }
