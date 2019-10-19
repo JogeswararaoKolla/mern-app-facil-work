@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import Jumbotron from "./components/Jumbotron";
-import Nav from "./components/Nav";
-import { Container, Row, Col } from "./components/Grid";
-import Worker from "./components/Worker"
+import Routes from './router'
+
 
 class App extends Component {
     state = {
@@ -13,16 +11,7 @@ class App extends Component {
 
     render() {
         return (
-           <Container>
-               <Nav />
-               <Jumbotron />
-               <Row>
-                   <Col size="md-12">
-                       <Worker />
-                   </Col>
-               </Row>
-           </Container>
-            
+             <Routes />
         )
     }
 }
