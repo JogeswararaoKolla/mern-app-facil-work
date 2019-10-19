@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-// import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import axios from 'axios'
-import Signup from './sign-up'
+import "./login.css";
+
 
 class LoginForm extends Component {
     constructor() {
@@ -55,12 +56,12 @@ class LoginForm extends Component {
 
     render() {
         if (this.state.redirectTo) {
-            // return <Redirect to={{ pathname: this.state.redirectTo }} />
+            return <Redirect to={{ pathname: this.state.redirectTo }} />
         } else {
             return (
                 <div>
                     <h4>Login</h4>
-                    <form className="form-horizontal">
+                    <form className="form form-horizontal">
                         <div className="form-group">
                             <div className="col-1 col-ml-auto">
                                 <label className="form-label" htmlFor="username">Username </label>
@@ -94,14 +95,13 @@ class LoginForm extends Component {
                             <div className="col-7"></div>
                             <button
                                 className="btn btn-primary col-1 col-mr-auto"
-
                                 onClick={this.handleSubmit}
                                 type="submit">Login</button>
-                            {/* <button
+                            <button
                                 className="btn btn-primary col-1 col-mr-auto"
-
-                                onClick={this.handleSubmit}
-                                type="submit"><Redirect to={{ pathname: <Signup /> }}/></button> */}
+                                type="submit">
+                                <a href= "/sign-up"> Sign up </a>
+                            </button>
                         </div>
                     </form>
                 </div>
