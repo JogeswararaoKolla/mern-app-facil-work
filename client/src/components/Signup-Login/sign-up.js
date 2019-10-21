@@ -61,7 +61,7 @@ class Signup extends Component {
                     <form className="form-horizontal">
                         <div className="form-group">
                             <div className="col-1 col-ml-auto">
-                                <lable className="form-label" htmlFor="username">Username</lable>
+                                <label className="form-label" htmlFor="username">Username</label>
                             </div>
                             <div className="col-3 col-mr-auto">
                                 <input className="form-input"
@@ -76,7 +76,7 @@ class Signup extends Component {
                         </div>
                         <div className="form-group">
                             <div className="col-1 col-ml-auto">
-                                <lable className="form-label" htmlFor="firstName">First Name </lable>
+                                <label className="form-label" htmlFor="firstName">First Name </label>
                             </div>
                             <div className="col-3 col-mr-auto">
                                 <input className="form-input"
@@ -91,7 +91,7 @@ class Signup extends Component {
                         </div>
                         <div className="form-group">
                             <div className="col-1 col-ml-auto">
-                                <lable className="form-label" htmlFor="lastName">Last Name</lable>
+                                <label className="form-label" htmlFor="lastName">Last Name</label>
                             </div>
                             <div className="col-3 col-mr-auto">
                                 <input className="form-input"
@@ -106,7 +106,7 @@ class Signup extends Component {
                         </div>
                         <div className="form-group">
                             <div className="col-1 col-ml-auto">
-                                <lable className="form-label" htmlFor="password">Password: </lable>
+                                <label className="form-label" htmlFor="password">Password: </label>
                             </div>
                             <div className="col-3 col-mr-auto">
                                 <input className="form-input"
