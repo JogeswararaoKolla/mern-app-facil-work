@@ -10,6 +10,7 @@ class Signup extends Component {
             firstName: '',
             lastName: '',
             password: '',
+            role: '',
             redirectTo: null
         }
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -23,9 +24,10 @@ class Signup extends Component {
     }
 
     handleSubmit(event) {
-        console.log('sign-up handleSubmit, username: ')
+        console.log('sign-up handleSubmit, username: , role')
         console.log(this.state.username)
         console.log(this.state.firstName)
+        console.log(this.state.role)
         event.preventDefault()
 
         //request to server to add a new username/password
@@ -33,12 +35,13 @@ class Signup extends Component {
             username: this.state.username,
             firstName: this.state.firstName,
             lastName: this.state.lastName,
-            password: this.state.password
+            password: this.state.password,
+            role: this.state.role
         })
             .then(response => {
                 console.log(response)
                 if (!response.data.errmsg) {
-                    console.log('Succesful Sign-up')
+                    console.log('Succesful Sign-up ' + this.state.role)
                     this.setState({ //redirect to login page
                         redirectTo: '/'
                     })
@@ -100,6 +103,21 @@ class Signup extends Component {
                                     name="lastName"
                                     placeholder="Last Name"
                                     value={this.state.lastName}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <div className="col-1 col-ml-auto">
+                                <label className="form-label" htmlFor="role">Role </label>
+                            </div>
+                            <div className="col-3 col-mr-auto">
+                                <input className="form-input"
+                                    type="text"
+                                    id="role"
+                                    name="role"
+                                    placeholder="Role"
+                                    value={this.state.role}
                                     onChange={this.handleChange}
                                 />
                             </div>
