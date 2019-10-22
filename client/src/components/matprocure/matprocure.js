@@ -13,6 +13,7 @@ class MatProcure extends React.Component {
                 <NavbarHeader />
                 <InfoBar title = "Material Procurement" />
                 <Container>
+                <a href="/add-material">Add Material</a>
                 <Table striped bordered hover variant="dark">
                         <thead>
                             <tr>
