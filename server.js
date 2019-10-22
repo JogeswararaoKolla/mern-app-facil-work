@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const logger = require("morgan");
+const mongoose = require("mongoose");
+const routes = require("./routes/index.js");
 
 const PORT = process.env.PORT || 3001;
 
@@ -15,6 +17,12 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+// Connect to the Mongo DB
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/workManagement"
+);
+
+app.use(routes);
 app.get("/", function(req, res) {
   res.send("Welcome to fasil-work");
 });
