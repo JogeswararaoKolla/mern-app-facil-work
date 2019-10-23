@@ -27,18 +27,12 @@ class Manager1 extends React.Component {
                         <tbody>
                             <tr>                                
                                 <td>Project 1</td>
-                                <td>Do template</td>
-                                <td>5</td>
+                                <td>date</td>
+                                <td> boxes </td>
                                 <td>In progress</td>
                                 <td>Text</td>
                             </tr>
-                            <tr>                                
-                                <td>Project 2</td>
-                                <td>Do template 2</td>
-                                <td>5</td>
-                                <td>Complete</td>
-                                <td>Text</td>
-                            </tr>
+                            
                         </tbody>
                     </Table>
                     {/* <h3>Worker 2</h3>
