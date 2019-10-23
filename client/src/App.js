@@ -1,14 +1,11 @@
 import React, { Component } from "react";
-
 import { Container } from "./components/Grid";
 import LoginForm from "./components/Signup-Login/login-form";
-// import Jumbotron from "./components/Jumbotron";
 import Signup from "./components/Signup-Login/sign-up";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Welcome from "./components/Welcome";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Routes from './router';
-
+import NavbarHeader from "./components/navbar/navbar";
 
 class App extends Component {
     state = {
@@ -18,17 +15,14 @@ class App extends Component {
 
     render() {
         return (
-
             <Router>
+                <NavbarHeader></NavbarHeader>
                 <Container>
                     <Route exact path="/" component={LoginForm} />
                     <Route exact path="/sign-up" component={Signup} />
                     <Route exact path="/welcome" component={Welcome} />
                 </Container>
             </Router>
-
-          <Routes />
-
         )
     }
 }
