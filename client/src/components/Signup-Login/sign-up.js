@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import "./style.css";
 
 class Signup extends Component {
     constructor() {
@@ -58,86 +59,89 @@ class Signup extends Component {
             return <Redirect to={{ pathname: this.state.redirectTo }} />
         } else {
             return (
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="card">
-                            <article class="card-body">
-                                <a href="/" type="submit" class="float-right btn btn-outline-primary">Login </a>
-                                <h4 class="card-title mb-4 mt-1">Sign-up </h4>
-                                <form>
-                                    <div class="form-group">
-                                        <div> 
-                                             <label htmlFor="username">Username: </label>
+                <div class="container">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <article class="card-body">
+                                    <a href="/" type="submit" class="float-right btn btn-outline-primary">Login </a>
+                                    <h4 class="card-title mb-4 mt-1">Sign-up </h4>
+                                    <form>
+                                        <div class="form-group">
+                                            <div>
+                                                <label htmlFor="username">Username: </label>
+                                            </div>
+                                            <input className="form-input"
+                                                type="text"
+                                                id="username"
+                                                name="username"
+                                                placeholder="Username"
+                                                value={this.state.username}
+                                                onChange={this.handleChange}
+                                            />
                                         </div>
-                                        <input className="form-input"
-                                            type="text"
-                                            id="username"
-                                            name="username"
-                                            placeholder="Username"
-                                            value={this.state.username}
-                                            onChange={this.handleChange}
-                                        />
-                                    </div>
-                                    <div class="form-group">
-                                        <div>
-                                            <label htmlFor="firstName">First Name: </label>
+                                        <div class="form-group">
+                                            <div>
+                                                <label htmlFor="firstName">First Name: </label>
+                                            </div>
+                                            <input className="form-input"
+                                                type="text"
+                                                id="firstName"
+                                                name="firstName"
+                                                placeholder="First Name"
+                                                value={this.state.firstName}
+                                                onChange={this.handleChange}
+                                            />
                                         </div>
-                                        <input className="form-input"
-                                            type="text"
-                                            id="firstName"
-                                            name="firstName"
-                                            placeholder="First Name"
-                                            value={this.state.firstName}
-                                            onChange={this.handleChange}
-                                        />
-                                    </div>
-                                    <div class="form-group">
-                                        <div>
-                                            <label htmlFor="lastName">Last Name: </label>
+                                        <div class="form-group">
+                                            <div>
+                                                <label htmlFor="lastName">Last Name: </label>
+                                            </div>
+                                            <input className="form-input"
+                                                type="text"
+                                                id="lastName"
+                                                name="lastName"
+                                                placeholder="Last Name"
+                                                value={this.state.lastName}
+                                                onChange={this.handleChange}
+                                            />
                                         </div>
-                                        <input className="form-input"
-                                            type="text"
-                                            id="lastName"
-                                            name="lastName"
-                                            placeholder="Last Name"
-                                            value={this.state.lastName}
-                                            onChange={this.handleChange}
-                                        />
-                                    </div>
-                                    <div class="form-group">
-                                        <div>
-                                            <label htmlFor="password">Password: </label>
+                                        <div class="form-group">
+                                            <div>
+                                                <label htmlFor="password">Password: </label>
+                                            </div>
+                                            <input className="form-input"
+                                                type="text"
+                                                id="password"
+                                                name="password"
+                                                placeholder="Password"
+                                                value={this.state.password}
+                                                onChange={this.handleChange}
+                                            />
                                         </div>
-                                        <input className="form-input"
-                                            type="text"
-                                            id="password"
-                                            name="password"
-                                            placeholder="Password"
-                                            value={this.state.password}
-                                            onChange={this.handleChange}
-                                        />
-                                    </div>
-                                    <div class="form-group">
-                                        <div>
-                                            <label content="center" htmlFor="role">Role: </label>
+                                        <div class="form-group">
+                                            <div>
+                                                <label content="center" htmlFor="role">Role: </label>
+                                            </div>
+                                            <input className="form-input"
+                                                type="text"
+                                                id="role"
+                                                name="role"
+                                                placeholder="Role"
+                                                value={this.state.role}
+                                                onChange={this.handleChange}
+                                            />
                                         </div>
-                                        <input className="form-input"
-                                            type="text"
-                                            id="role"
-                                            name="role"
-                                            placeholder="Role"
-                                            value={this.state.role}
-                                            onChange={this.handleChange}
-                                        />
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary btn-block">Login </button>
-                                    </div>
-                                </form>
-                            </article>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary btn-block">Sign up </button>
+                                        </div>
+                                    </form>
+                                </article>
+                            </div>
                         </div>
                     </div>
                 </div>
+
 
 
 
