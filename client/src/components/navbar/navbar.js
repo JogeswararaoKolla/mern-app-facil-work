@@ -4,11 +4,18 @@ import './navbar.css';
 
 class NavbarHeader extends React.Component {
 
-    render(){
+    render() {
         return (
             <React.Fragment>
-                <Navbar bg="dark" variant="dark" className="justify-content-center">
-                    <Navbar.Brand href="#home">FACIL WORK</Navbar.Brand>
+                <Navbar class="" bg="dark" variant="dark">
+                    <a class="navbar-brand" href="/">Facil Work</a>
+                    <div class="">
+                        <ul>
+                            <li>
+
+                            </li>
+                        </ul>
+                    </div>
                 </Navbar>
             </React.Fragment>
         )
