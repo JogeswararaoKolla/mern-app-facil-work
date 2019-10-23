@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import { Container } from "./components/Grid";
 import LoginForm from "./components/Signup-Login/login-form";
 // import Jumbotron from "./components/Jumbotron";
@@ -8,6 +9,7 @@ import Welcome from "./components/Welcome";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Routes from './router';
 
+
 class App extends Component {
     state = {
         firstName: "",
@@ -16,6 +18,7 @@ class App extends Component {
 
     render() {
         return (
+
             <Router>
                 <Container>
                     <Route exact path="/" component={LoginForm} />
@@ -23,7 +26,9 @@ class App extends Component {
                     <Route exact path="/welcome" component={Welcome} />
                 </Container>
             </Router>
+
           <Routes />
+
         )
     }
 }
