@@ -1,22 +1,27 @@
-import React from "react";
-import { Container, Col, Row } from "../Grid";
-import "./style.css";
+import React from 'react';
+import NavbarHeader from '../navbar/navbar';
+import InfoBar from '../infobar/infobar';
+import Container from 'react-bootstrap/Container';
+import Table from 'react-bootstrap/Table';
 
-function Worker() {
-    render() {
-        return (
+
+class MatProcure extends React.Component {
+
+    render(){
+        return(
             <React.Fragment>
                 <NavbarHeader />
-                <InfoBar title="Worker" />
+                <InfoBar title = "Material Procurement" />
                 <Container>
-                    <Table striped bordered hover variant="dark">
+                <a href="/add-material">Add Material</a>
+                <Table striped bordered hover variant="dark">
                         <thead>
                             <tr>
-                                <th>Project</th>
-                                <th>Work Assigned</th>
-                                <th>Deadline</th>
-                                <th>Material</th>
-                                <th>Quantity</th>
+                            <th>Project</th>
+                            <th>Work Assigned</th>
+                            <th>Deadline</th>
+                            <th>Material</th>
+                            <th>Quantity</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,6 +47,4 @@ function Worker() {
     }
 }
 
-
-
-export default Worker;
+export default MatProcure;

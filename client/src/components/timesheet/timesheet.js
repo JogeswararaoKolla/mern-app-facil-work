@@ -13,6 +13,7 @@ class TimeSheet extends React.Component {
                 <InfoBar title="Time Sheet" />
                 <Container>
                     <h3>Worker 1</h3>
+                    <a href="/add-timesheet">Add Work</a>
                     <Table striped bordered hover variant="dark">
                         <thead>
                             <tr>
@@ -44,6 +45,7 @@ class TimeSheet extends React.Component {
                         </tbody>
                     </Table>
                     <h3>Worker 2</h3>
+                    <a href="/add-timesheet">Add Work</a>
                     <Table striped bordered hover variant="dark">
                         <thead>
                             <tr>
