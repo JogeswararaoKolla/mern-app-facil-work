@@ -56,8 +56,8 @@ class ManagerInputForm extends React.Component {
               placeholder="Enter Description"
             />
           </Form.Group>
-          
-           <Form.Group controlId="worker">
+
+          <Form.Group controlId="worker">
             <Form.Label>Worker</Form.Label>
             <Form.Control
               type="text"
@@ -67,7 +67,7 @@ class ManagerInputForm extends React.Component {
               placeholder="Enter Team Member"
             />
           </Form.Group>
-          
+
           <Form.Group controlId="deadline">
             <Form.Label>Deadline</Form.Label>
             <Form.Control
@@ -77,7 +77,7 @@ class ManagerInputForm extends React.Component {
               onChange={this.handleInputChange}
             />
           </Form.Group>
-         
+
           <Form.Group controlId="hours_alloted">
             <Form.Label>Hours Alloted</Form.Label>
             <Form.Control
@@ -101,7 +101,6 @@ class ManagerInputForm extends React.Component {
           <Button variant="primary" type="submit" onClick={this.handleClick}>
             Add to Project list
           </Button>
-          console.log(this.state)
         </Container>
       </React.Fragment>
     );
