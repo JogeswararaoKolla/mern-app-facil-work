@@ -99,8 +99,7 @@ class ManagerInputForm extends React.Component {
               <option>Pending Assignment</option>
               <option>In Progress</option>
               <option>Complete</option>              
-            </Form.Control>
-           
+            </Form.Control>           
           </Form.Group>
           <Button variant="primary" type="submit" onClick={this.handleClick}>
             Add to Project list
