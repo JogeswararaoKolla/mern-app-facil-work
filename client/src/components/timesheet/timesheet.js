@@ -2,14 +2,13 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import InfoBar from '../infobar/infobar';
-import NavbarHeader from '../navbar/navbar';
+
 
 class TimeSheet extends React.Component {
 
     render(){
         return(
             <React.Fragment>
-                <NavbarHeader />
                 <InfoBar title="Time Sheet" />
                 <Container>
                     <h3>Worker 1</h3>
