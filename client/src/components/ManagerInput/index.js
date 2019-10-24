@@ -10,8 +10,8 @@ class ManagerInputForm extends React.Component {
     work_assigned: "",
     worker: "",
     deadline: "",
-    status: "",
-    hours_alloted: ""
+    hours_alloted: "",
+    status: ""    
   };
   handleClick = e => {
     e.preventDefault();
@@ -91,12 +91,16 @@ class ManagerInputForm extends React.Component {
 
           <Form.Group controlId="exampleForm.ControlSelect1">
             <Form.Label>Status</Form.Label>
-            <Form.Control as="select">
+            <Form.Control as="select" 
+            type="text"
+            name="status"
+            value={this.state.status}
+            onChange={this.handleInputChange}>            
               <option>Pending Assignment</option>
               <option>In Progress</option>
-              <option>Complete</option>
-              value={this.state.status}
+              <option>Complete</option>              
             </Form.Control>
+           
           </Form.Group>
           <Button variant="primary" type="submit" onClick={this.handleClick}>
             Add to Project list
