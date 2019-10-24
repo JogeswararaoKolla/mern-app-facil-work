@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavbarHeader from "./components/navbar/navbar";
 import TimeSheet from "./components/timesheet/timesheet.js";
 import TimeSheetForm from "./components/timesheet-form/timesheet-form.js";
+import ManagerInputForm from "./components/ManagerInput/index.js";
 
 class App extends Component {
   state = {
@@ -22,6 +23,7 @@ class App extends Component {
         <Container>
           <Route exact path="/timesheet" component={TimeSheet} />
           <Route exact path="/add-timesheet" component={TimeSheetForm} />
+          <Route exact path="/manager-input" component={ManagerInputForm} />
           <Route exact path="/" component={LoginForm} />
           <Route exact path="/sign-up" component={Signup} />
           <Route exact path="/welcome" component={Welcome} />
