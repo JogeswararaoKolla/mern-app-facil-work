@@ -101,7 +101,6 @@ class ManagerInputForm extends React.Component {
           <Button variant="primary" type="submit" onClick={this.handleClick}>
             Add to Project list
           </Button>
-          console.log(this.state)
         </Container>
       </React.Fragment>
     );
