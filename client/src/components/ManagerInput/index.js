@@ -10,8 +10,8 @@ class ManagerInputForm extends React.Component {
     work_assigned: "",
     worker: "",
     deadline: "",
-    status: "",
-    hours_alloted: ""
+    hours_alloted: "",
+    status: ""    
   };
   handleClick = e => {
     e.preventDefault();
@@ -56,8 +56,8 @@ class ManagerInputForm extends React.Component {
               placeholder="Enter Description"
             />
           </Form.Group>
-          
-           <Form.Group controlId="worker">
+
+          <Form.Group controlId="worker">
             <Form.Label>Worker</Form.Label>
             <Form.Control
               type="text"
@@ -67,7 +67,7 @@ class ManagerInputForm extends React.Component {
               placeholder="Enter Team Member"
             />
           </Form.Group>
-          
+
           <Form.Group controlId="deadline">
             <Form.Label>Deadline</Form.Label>
             <Form.Control
@@ -77,7 +77,7 @@ class ManagerInputForm extends React.Component {
               onChange={this.handleInputChange}
             />
           </Form.Group>
-         
+
           <Form.Group controlId="hours_alloted">
             <Form.Label>Hours Alloted</Form.Label>
             <Form.Control
@@ -91,12 +91,15 @@ class ManagerInputForm extends React.Component {
 
           <Form.Group controlId="exampleForm.ControlSelect1">
             <Form.Label>Status</Form.Label>
-            <Form.Control as="select">
+            <Form.Control as="select" 
+            type="text"
+            name="status"
+            value={this.state.status}
+            onChange={this.handleInputChange}>            
               <option>Pending Assignment</option>
               <option>In Progress</option>
-              <option>Complete</option>
-              value={this.state.status}
-            </Form.Control>
+              <option>Complete</option>              
+            </Form.Control>           
           </Form.Group>
           <Button variant="primary" type="submit" onClick={this.handleClick}>
             Add to Project list
