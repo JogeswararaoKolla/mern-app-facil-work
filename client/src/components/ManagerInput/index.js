@@ -9,7 +9,7 @@ class ManagerInputForm extends React.Component {
     project_name: "",
     work_assigned: "",
     worker: "",
-    deadline: "",
+    dead_line: "",
     hours_alloted: "",
     status: ""    
   };
@@ -72,8 +72,8 @@ class ManagerInputForm extends React.Component {
             <Form.Label>Deadline</Form.Label>
             <Form.Control
               type="date"
-              name="deadline"
-              value={this.state.deadline}
+              name="dead_line"
+              value={this.state.dead_line}
               onChange={this.handleInputChange}
             />
           </Form.Group>

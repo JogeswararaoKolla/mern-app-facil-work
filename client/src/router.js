@@ -22,6 +22,7 @@ export default props => (
             <Route exact path="/welcome" component={ Welcome } />
             <Route exact path="/add-timesheet" component={ TimeSheetForm } />
             <Route exact path="/add-material" component={ MatProcurmentForm} />
+            <Route exact path="/manager-input" component={ManagerInputForm} />
         </Switch>
     </BrowserRouter>
   )
