@@ -1,8 +1,6 @@
-import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-import Welcome from "../Welcome/index.js";
-import axios from "axios";
-import "./style.css";
+import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
+import axios from 'axios'
 
 class LoginForm extends Component {
   constructor() {
@@ -22,41 +20,39 @@ class LoginForm extends Component {
     });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    console.log("handleSubmit");
-    console.log(this.state);
-    axios
-      .get(`/api/users/name/${this.state.username}`)
-      .then(response => {
-        console.log("login response: ");
-        console.log(response);
-        // if (response.status === 200) {
-        //     // update App.js state
-        //     this.props.updateUser({
-        //         loggedIn: true,
-        //         username: response.data.username
-        //     })
-        // update the state to redirect to home
-        this.setState({
-          redirectTo: "/welcome"
-        });
-        // }
-      })
-      .catch(error => {
-        console.log("login error: ");
-        console.log(error);
-      });
-  }
+    handleSubmit(event) {
+        event.preventDefault()
+        console.log('handleSubmit')
+
+        axios.get(`/api/users/name/${this.state.username}`)
+            .then(response => {
+                console.log('login response: ')
+                console.log(response)
+                // if (response.status === 200) {
+                //     // update App.js state
+                //     this.props.updateUser({
+                //         loggedIn: true,
+                //         username: response.data.username
+                //     })
+                // update the state to redirect to home
+                this.setState({
+                    redirectTo: '/welcome'
+                })
+                // }
+            }).catch(error => {
+                console.log('login error: ')
+                console.log(error);
+            })
+    }
 
   render() {
     if (this.state.redirectTo) {
       return (
-        // <Redirect
-        //   to={{ pathname: this.state.redirectTo }}
-        //   userDetails={this.state}
-        // />
-        <Welcome userDetails={this.state} />
+        <Redirect
+          to={{ pathname: this.state.redirectTo }}
+          userDetails={this.state}
+        />
+        // <Welcome userDetails={this.state} />
       );
     } else {
       return (
