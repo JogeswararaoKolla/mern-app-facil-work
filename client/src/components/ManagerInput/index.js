@@ -18,6 +18,17 @@ class ManagerInputForm extends React.Component {
     e.preventDefault();
     console.log(e);
     console.log(this.state);
+    const managerProject = {
+      project_name: this.state.project_name,
+      work_assigned: this.state.work_assigned,
+      worker: this.state.worker,
+      dead_line: this.state.dead_line,
+      hours_alloted: this.state.hours_alloted
+    };
+    axios
+      .post("/api/manager", managerProject)
+      .then(response => console.log(response))
+      .catch(error => console.log(error));
   };
 
   componentDidMount() {
