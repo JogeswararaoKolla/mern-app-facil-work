@@ -30,7 +30,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   find: function(req, res) {
-    db.User.find({ username: req.params.username }, req.body)
+    db.User.find({ userName: req.params.userName }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
