@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import InfoBar from "../infobar/infobar";
+import axios from "axios";
 
 class ManagerInputForm extends React.Component {
   state = {
@@ -11,13 +12,24 @@ class ManagerInputForm extends React.Component {
     worker: "",
     dead_line: "",
     hours_alloted: "",
-    status: ""    
+    userslist: []
   };
   handleClick = e => {
     e.preventDefault();
     console.log(e);
     console.log(this.state);
   };
+
+  componentDidMount() {
+    axios
+      .get("/api/users/")
+      .then(response => {
+        this.setState({
+          userslist: response.data.map(userObj => userObj.username)
+        });
+      })
+      .catch(error => console.log(error));
+  }
 
   handleInputChange = event => {
     event.preventDefault();
@@ -60,12 +72,17 @@ class ManagerInputForm extends React.Component {
           <Form.Group controlId="worker">
             <Form.Label>Worker</Form.Label>
             <Form.Control
+              as="select"
               type="text"
               name="worker"
               value={this.state.worker}
               onChange={this.handleInputChange}
               placeholder="Enter Team Member"
-            />
+            >
+              {this.state.userslist.map(user => (
+                <option> {user}</option>
+              ))}
+            </Form.Control>
           </Form.Group>
 
           <Form.Group controlId="deadline">
@@ -89,18 +106,6 @@ class ManagerInputForm extends React.Component {
             />
           </Form.Group>
 
-          <Form.Group controlId="exampleForm.ControlSelect1">
-            <Form.Label>Status</Form.Label>
-            <Form.Control as="select" 
-            type="text"
-            name="status"
-            value={this.state.status}
-            onChange={this.handleInputChange}>            
-              <option>Pending Assignment</option>
-              <option>In Progress</option>
-              <option>Complete</option>              
-            </Form.Control>           
-          </Form.Group>
           <Button variant="primary" type="submit" onClick={this.handleClick}>
             Add to Project list
           </Button>
