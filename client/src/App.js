@@ -13,7 +13,7 @@ import TimeSheet from "./components/timesheet/timesheet.js";
 import TimeSheetForm from "./components/timesheet-form/timesheet-form.js";
 import ManagerInputForm from "./components/ManagerInput/index.js";
 import MatProcurmentForm from "./components/matprocurment-form/matprocurment-form";
-import Manager1 from "./components/Manager1/index.js";
+import Manager1 from "./components/Manager1/index";
 
 class App extends Component {
 
