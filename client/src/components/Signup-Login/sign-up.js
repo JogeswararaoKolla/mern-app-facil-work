@@ -122,7 +122,7 @@ class Signup extends Component {
                                             <div>
                                                 <label content="center" htmlFor="role">Role: </label>
                                             </div>
-                                            <select class="form-control" id="exampleFormControlSelect1">
+                                            <select class="form-control">
                                                 <option>Worker</option>
                                                 <option>Manager</option>
                                             </select>

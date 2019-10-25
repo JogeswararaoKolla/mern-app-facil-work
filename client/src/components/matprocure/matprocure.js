@@ -1,5 +1,4 @@
 import React from 'react';
-import NavbarHeader from '../navbar/navbar';
 import InfoBar from '../infobar/infobar';
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
@@ -10,7 +9,6 @@ class MatProcure extends React.Component {
     render(){
         return(
             <React.Fragment>
-                <NavbarHeader />
                 <InfoBar title = "Material Procurement" />
                 <Container>
                 <a href="/add-material">Add Material</a>

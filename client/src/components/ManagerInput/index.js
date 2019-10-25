@@ -4,13 +4,14 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import InfoBar from "../infobar/infobar";
 
-class TimeSheetForm extends React.Component {
+class ManagerInputForm extends React.Component {
   state = {
     project_name: "",
     work_assigned: "",
-    start_date: "",
-    end_date: "",
-    hours_worked: 0
+    worker: "",
+    dead_line: "",
+    hours_alloted: "",
+    status: ""    
   };
   handleClick = e => {
     e.preventDefault();
@@ -32,10 +33,10 @@ class TimeSheetForm extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <InfoBar title="Add Work" />
+        <InfoBar title="Manager Input View" />
         <Container>
           <Form.Group controlId="project_name">
-            <Form.Label>Project</Form.Label>
+            <Form.Label>Project Name</Form.Label>
             <Form.Control
               type="text"
               name="project_name"
@@ -50,57 +51,58 @@ class TimeSheetForm extends React.Component {
             <Form.Control
               type="text"
               name="work_assigned"
-              value={this.state.name}
+              value={this.state.work_assigned}
               onChange={this.handleInputChange}
               placeholder="Enter Description"
             />
           </Form.Group>
 
-          {/* <Form.Group controlId="allotted_hours">
-            <Form.Label>Alloted Hours</Form.Label>
-            <Form.Control type="number" />
-          </Form.Group> */}
+          <Form.Group controlId="worker">
+            <Form.Label>Worker</Form.Label>
+            <Form.Control
+              type="text"
+              name="worker"
+              value={this.state.worker}
+              onChange={this.handleInputChange}
+              placeholder="Enter Team Member"
+            />
+          </Form.Group>
 
-          <Form.Group controlId="start_date">
-            <Form.Label>Start Date</Form.Label>
+          <Form.Group controlId="deadline">
+            <Form.Label>Deadline</Form.Label>
             <Form.Control
               type="date"
-              name="start_date"
-              value={this.state.start_date}
+              name="dead_line"
+              value={this.state.dead_line}
               onChange={this.handleInputChange}
             />
           </Form.Group>
 
-          <Form.Group controlId="end_date">
-            <Form.Label>End Date</Form.Label>
-            <Form.Control
-              type="date"
-              name="end_date"
-              value={this.state.end_date}
-              onChange={this.handleInputChange}
-            />
-          </Form.Group>
-
-          <Form.Group controlId="hours_worked">
-            <Form.Label>Hours Worked</Form.Label>
+          <Form.Group controlId="hours_alloted">
+            <Form.Label>Hours Alloted</Form.Label>
             <Form.Control
               type="number"
-              name="hours_worked"
-              value={this.state.hours_worked}
+              name="hours_alloted"
+              value={this.state.hours_alloted}
               onChange={this.handleInputChange}
+              placeholder="Enter man hours estimated to complete task"
             />
           </Form.Group>
 
           <Form.Group controlId="exampleForm.ControlSelect1">
             <Form.Label>Status</Form.Label>
-            <Form.Control as="select">
-              <option>Pending</option>
-              <option>Complete</option>
+            <Form.Control as="select" 
+            type="text"
+            name="status"
+            value={this.state.status}
+            onChange={this.handleInputChange}>            
+              <option>Pending Assignment</option>
               <option>In Progress</option>
-            </Form.Control>
+              <option>Complete</option>              
+            </Form.Control>           
           </Form.Group>
           <Button variant="primary" type="submit" onClick={this.handleClick}>
-            Add to Time Sheet
+            Add to Project list
           </Button>
         </Container>
       </React.Fragment>
@@ -108,4 +110,4 @@ class TimeSheetForm extends React.Component {
   }
 }
 
-export default TimeSheetForm;
+export default ManagerInputForm;
