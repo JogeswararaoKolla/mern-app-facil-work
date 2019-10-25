@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
-import "./style.css";
 
 class Signup extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             username: '',
             firstName: '',
@@ -71,7 +70,7 @@ class Signup extends Component {
                                             <div>
                                                 <label htmlFor="username">Username: </label>
                                             </div>
-                                            <input className="form-input"
+                                            <input className="form-control"
                                                 type="text"
                                                 id="username"
                                                 name="username"
@@ -84,7 +83,7 @@ class Signup extends Component {
                                             <div>
                                                 <label htmlFor="firstName">First Name: </label>
                                             </div>
-                                            <input className="form-input"
+                                            <input className="form-control"
                                                 type="text"
                                                 id="firstName"
                                                 name="firstName"
@@ -97,7 +96,7 @@ class Signup extends Component {
                                             <div>
                                                 <label htmlFor="lastName">Last Name: </label>
                                             </div>
-                                            <input className="form-input"
+                                            <input className="form-control"
                                                 type="text"
                                                 id="lastName"
                                                 name="lastName"
@@ -110,7 +109,7 @@ class Signup extends Component {
                                             <div>
                                                 <label htmlFor="password">Password: </label>
                                             </div>
-                                            <input className="form-input"
+                                            <input className="form-control"
                                                 type="text"
                                                 id="password"
                                                 name="password"
@@ -123,14 +122,10 @@ class Signup extends Component {
                                             <div>
                                                 <label content="center" htmlFor="role">Role: </label>
                                             </div>
-                                            <input className="form-input"
-                                                type="text"
-                                                id="role"
-                                                name="role"
-                                                placeholder="Role"
-                                                value={this.state.role}
-                                                onChange={this.handleChange}
-                                            />
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>Worker</option>
+                                                <option>Manager</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary btn-block">Sign up </button>
@@ -141,104 +136,6 @@ class Signup extends Component {
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-                // <div className="SignupForm">
-                //     <h4>Sign up</h4>
-                //     <form className="form-horizontal">
-                //         <div className="form-group">
-                //             <div className="col-1 col-ml-auto">
-                //                 <label className="form-label" htmlFor="username">Username</label>
-                //             </div>
-                //             <div className="col-3 col-mr-auto">
-                //                 <input className="form-input"
-                //                     type="text"
-                //                     id="username"
-                //                     name="username"
-                //                     placeholder="Username"
-                //                     value={this.state.username}
-                //                     onChange={this.handleChange}
-                //                 />
-                //             </div>
-                //         </div>
-                //         <div className="form-group">
-                //             <div className="col-1 col-ml-auto">
-                //                 <label className="form-label" htmlFor="firstName">First Name </label>
-                //             </div>
-                //             <div className="col-3 col-mr-auto">
-                //                 <input className="form-input"
-                //                     type="text"
-                //                     id="firstName"
-                //                     name="firstName"
-                //                     placeholder="First Name"
-                //                     value={this.state.firstName}
-                //                     onChange={this.handleChange}
-                //                 />
-                //             </div>
-                //         </div>
-                //         <div className="form-group">
-                //             <div className="col-1 col-ml-auto">
-                //                 <label className="form-label" htmlFor="lastName">Last Name</label>
-                //             </div>
-                //             <div className="col-3 col-mr-auto">
-                //                 <input className="form-input"
-                //                     type="text"
-                //                     id="lastName"
-                //                     name="lastName"
-                //                     placeholder="Last Name"
-                //                     value={this.state.lastName}
-                //                     onChange={this.handleChange}
-                //                 />
-                //             </div>
-                //         </div>
-                //         <div className="form-group">
-                //             <div className="col-1 col-ml-auto">
-                //                 <label className="form-label" htmlFor="role">Role </label>
-                //             </div>
-                //             <div className="col-3 col-mr-auto">
-                //                 <input className="form-input"
-                //                     type="text"
-                //                     id="role"
-                //                     name="role"
-                //                     placeholder="Role"
-                //                     value={this.state.role}
-                //                     onChange={this.handleChange}
-                //                 />
-                //             </div>
-                //         </div>
-                //         <div className="form-group">
-                //             <div className="col-1 col-ml-auto">
-                //                 <label className="form-label" htmlFor="password">Password: </label>
-                //             </div>
-                //             <div className="col-3 col-mr-auto">
-                //                 <input className="form-input"
-                //                     placeholder="password"
-                //                     type="password"
-                //                     name="password"
-                //                     value={this.state.password}
-                //                     onChange={this.handleChange}
-                //                 />
-                //             </div>
-                //         </div>
-                //         <div className="form-group">
-                //             <div className="col-7"></div>
-                //             <button
-                //                 className="btn btn-primary col-1 col-mr-auto"
-                //                 onClick={this.handleSubmit}
-                //                 type="submit"
-                //             >Sign up</button>
-                //             <button
-                //                 className="btn btn-primary col-1 col-mr-auto"
-                //                 type="submit">
-                //                 <a href="/"> I already have an account </a>
-                //             </button>
-                //         </div>
-                //     </form>
-                // </div>
             )
         }
     }
