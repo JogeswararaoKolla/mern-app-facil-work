@@ -32,7 +32,7 @@ class Navbar extends Component {
         console.log(this.props);
 
         return (
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                 <a class="navbar-brand" href="">Facil Work</a>
                 { loggedIn ? (
                     <section class="navbar-section">
@@ -41,14 +41,17 @@ class Navbar extends Component {
                 </section>
                 ) : (
                     <section class="navbar-section">
-                        <a href="/home" class="btn btn-link text-secondary">
-                            <span class="text-secondary">Home</span>
+                        <a href="/home" class="btn btn-link text-white">
+                            <span class="text-white">Home </span>
                         </a>
-                        <a href="/" class="btn btn-link text-secondary">
-                            <span class="text-secondary">Login</span>
+                        <a href="/projects" class="btn btn-link text-white">
+                            <span class="text-white">Projects </span>
                         </a>
-                        <a href="/sign-up" class="btn btn-link text-secondary">
-                            <span class="text-secondary">Sign up</span>
+                        <a href="/" class="btn btn-link text-white">
+                            <span class="text-white">Login </span>
+                        </a>
+                        <a href="/sign-up" class="btn btn-link text-white">
+                            <span class="text-white">Sign-up </span>
                         </a> 
                     </section>
                 )}

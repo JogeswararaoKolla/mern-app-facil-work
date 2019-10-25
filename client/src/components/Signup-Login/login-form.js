@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import "./style.css";
 
 class LoginForm extends Component {
   constructor() {
@@ -75,7 +76,7 @@ class LoginForm extends Component {
                         <label htmlFor="username">Username: </label>
                       </div>
                       <input
-                        className="form-input"
+                        className="form-control"
                         type="text"
                         name="username"
                         placeholder="Username"
@@ -90,7 +91,7 @@ class LoginForm extends Component {
                         </label>
                       </div>
                       <input
-                        className="form-input"
+                        className="form-control"
                         type="text"
                         id="password"
                         name="password"
