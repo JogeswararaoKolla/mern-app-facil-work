@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
-import Welcome from '../components/Welcome'
 
 class LoginForm extends Component {
   constructor() {
@@ -49,11 +48,11 @@ class LoginForm extends Component {
   render() {
     if (this.state.redirectTo) {
       return (
-        // <Redirect
-        //   to={{ pathname: this.state.redirectTo }}
-        //   userDetails={this.state}
-        // />
-        <Welcome userDetails={this.state} />
+        <Redirect
+          to={{ pathname: this.state.redirectTo }}
+          userDetails={this.state}
+        />
+        // <Welcome userDetails={this.state} />
       );
     } else {
       return (
