@@ -128,7 +128,7 @@ class Signup extends Component {
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary btn-block">Sign up </button>
+                                            <button type="submit" class="btn btn-primary btn-block" onClick={this.handleSubmit}>Sign up </button>
                                         </div>
                                     </form>
                                 </article>
