@@ -47,12 +47,6 @@ class Navbar extends Component {
                         <a href="/projects" class="btn btn-link text-white">
                             <span class="text-white">Projects </span>
                         </a>
-                        <a href="/" class="btn btn-link text-white">
-                            <span class="text-white">Login </span>
-                        </a>
-                        <a href="/sign-up" class="btn btn-link text-white">
-                            <span class="text-white">Sign-up </span>
-                        </a> 
                     </section>
                 )}
             </nav>
