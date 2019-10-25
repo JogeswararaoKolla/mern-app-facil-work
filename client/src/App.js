@@ -1,12 +1,14 @@
 import React, { Component } from "react";
+import axios from "axios";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+// Components
 import { Container } from "./components/Grid";
 import LoginForm from "./components/Signup-Login/login-form";
 import Signin from "./components/Signup-Login/Signin.js";
 import Signup from "./components/Signup-Login/Signup.js";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Welcome from "./components/Welcome";
-import "bootstrap/dist/css/bootstrap.min.css";
-import NavbarHeader from "./components/navbar/navbar";
 import TimeSheet from "./components/timesheet/timesheet.js";
 import TimeSheetForm from "./components/timesheet-form/timesheet-form.js";
 import ManagerInputForm from "./components/ManagerInput/index.js";
