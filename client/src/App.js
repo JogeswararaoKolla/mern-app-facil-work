@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Container } from "./components/Grid";
 import LoginForm from "./components/Signup-Login/login-form";
-import Signup from "./components/Signup-Login/sign-up";
+import Signin from "./components/Signup-Login/Signin.js";
+import Signup from "./components/Signup-Login/Signup.js";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Welcome from "./components/Welcome";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -21,17 +22,9 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <NavbarHeader></NavbarHeader>
-        <Container>
-          <Route exact path="/timesheet" component={TimeSheet} />
-          <Route exact path="/add-timesheet" component={TimeSheetForm} />
-          <Route exact path="/add-material" component={MatProcurmentForm} />
-          <Route exact path="/manager-input" component={ManagerInputForm} />
-          <Route exact path="/" component={LoginForm} />
-          <Route exact path="/sign-up" component={Signup} />
-          <Route exact path="/welcome" component={Welcome} />
-          <Route exact path="/projects" component={Manager1} />
-        </Container>
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/" component={Signin} />
+        <Route exact path="/welcome" component={Welcome} />
       </Router>
     );
   }
