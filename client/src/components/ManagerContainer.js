@@ -1,5 +1,4 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import ManagerProjects from "../components/ManagerProjects.js";
 import InfoBar from "./infobar/infobar.js";
 function ManagerContainer(props) {
