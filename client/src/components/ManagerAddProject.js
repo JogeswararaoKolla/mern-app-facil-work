@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import InfoBar from "../components/infobar/infobar.js";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Jumbotron } from "react-bootstrap";
 
 class ManagerAddProject extends React.Component {
   state = {
@@ -49,8 +50,10 @@ class ManagerAddProject extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <InfoBar title="Manager Input View" />
         <Container>
+          <Jumbotron>
+            <h3 className="text-center">Manager add Project View</h3>
+          </Jumbotron>
           <Form.Group controlId="projectNameId">
             <Form.Label>Project Name</Form.Label>
             <Form.Control
@@ -94,16 +97,20 @@ class ManagerAddProject extends React.Component {
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit" onClick={this.handleClick}>
+          <Button variant="secondary" type="submit" onClick={this.handleClick}>
             Add to Project list
           </Button>
           <Link
             to={{
               pathname: "/managerprojects",
-              state: { userName: this.props.location.state.userName }
+              state: {
+                userName: this.props.location.state.userName,
+                firstName: this.props.location.state.firstName,
+                lastName: this.props.location.state.lastName
+              }
             }}
           >
-            <Button className="btn btn-primary m-2">Projects</Button>
+            <Button className="btn btn-secondary m-2">Projects</Button>
           </Link>
         </Container>
       </React.Fragment>

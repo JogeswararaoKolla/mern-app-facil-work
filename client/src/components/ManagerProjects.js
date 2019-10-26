@@ -42,14 +42,17 @@ function ManagerProjects(props) {
   return (
     <React.Fragment>
       <Container>
-        <h3>Manager - Projects View</h3>
         <Link
           to={{
             pathname: "/manageraddproject",
-            state: { userName: props.userName }
+            state: {
+              userName: props.userName,
+              firstName: props.firstName,
+              lastName: props.lastName
+            }
           }}
         >
-          <Button>Add a Project</Button>
+          <Button variant="secondary">Add a Project</Button>
         </Link>
         <Table
           style={{ fontFamily: "sanserif" }}
@@ -78,7 +81,10 @@ function ManagerProjects(props) {
                   <td>{project.status}</td>
                   <td>{project.workDescription}</td>
                   <td>
-                    <Button onClick={() => handleDelete(project._id)}>
+                    <Button
+                      variant="secondary"
+                      onClick={() => handleDelete(project._id)}
+                    >
                       Delete
                     </Button>
                     <Link
@@ -86,11 +92,13 @@ function ManagerProjects(props) {
                         pathname: "/manageraddworker",
                         state: {
                           userName: props.userName,
-                          projectName: project.projectName
+                          projectName: project.projectName,
+                          firstName: props.firstName,
+                          lastName: props.lastName
                         }
                       }}
                     >
-                      <Button className="btn btn-primary m-2">
+                      <Button className="btn btn-secondary m-2">
                         Add Worker
                       </Button>
                     </Link>
@@ -128,7 +136,10 @@ function ManagerProjects(props) {
                   <td>{work.remarks}</td>
                   <td>
                     {work.status}
-                    <Button onClick={() => handleWorkerDelete(work._id)}>
+                    <Button
+                      variant="secondary"
+                      onClick={() => handleWorkerDelete(work._id)}
+                    >
                       Delete
                     </Button>
                   </td>
