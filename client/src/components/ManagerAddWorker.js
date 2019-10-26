@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Button, Form, Container } from "react-bootstrap";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class ManagerAddWorker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      worker: "",
+      workerName: "",
       workerDescription: "",
       workerDeadLine: "",
       labourHours: "",
@@ -22,7 +23,7 @@ class ManagerAddWorker extends Component {
         console.log(response.data);
         this.setState({
           userslist: response.data
-            .filter(userObj => userObj.role === "worker")
+            .filter(userObj => userObj.role === "Worker")
             .map(worker => worker.userName)
         });
       })
@@ -42,6 +43,25 @@ class ManagerAddWorker extends Component {
   handleClick = event => {
     event.preventDefault();
     console.log(this.state);
+    console.log(this.props);
+    axios
+      .post("/api/worker", {
+        ...this.state,
+        userName: this.props.location.state.userName,
+        projectName: this.props.location.state.projectName
+      })
+      .then(response => {
+        console.log(response.data);
+        alert("Worker added!");
+        this.setState({
+          workerName: "",
+          workerDescription: "",
+          workerDeadLine: "",
+          labourHours: "",
+          remarks: ""
+        });
+      })
+      .catch(error => console.log(error));
   };
 
   render() {
@@ -49,12 +69,12 @@ class ManagerAddWorker extends Component {
       <div>
         <Container>
           <Form>
-            <Form.Group controlId="workerId">
+            <Form.Group controlId="workerNameId">
               <Form.Label>Worker Name:</Form.Label>
               <Form.Control
                 as="select"
-                name="worker"
-                value={this.state.worker}
+                name="workerName"
+                value={this.state.workerName}
                 onChange={this.handleInputChange}
                 placeholder="Enter Worker Name"
               >
@@ -108,6 +128,14 @@ class ManagerAddWorker extends Component {
             <Button variant="primary" type="submit" onClick={this.handleClick}>
               Add worker
             </Button>
+            <Link
+              to={{
+                pathname: "/managerprojects",
+                state: { userName: this.props.location.state.userName }
+              }}
+            >
+              <Button className="btn btn-primary m-2">Projects</Button>
+            </Link>
           </Form>
         </Container>
       </div>

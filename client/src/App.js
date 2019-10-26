@@ -14,14 +14,14 @@ import ManagerAddWorker from "./components/ManagerAddWorker.js";
 class App extends Component {
   render() {
     return (
-      <ManagerAddWorker />
-      // <Router>
-      //   <Route exact path="/signup" component={Signup} />
-      //   <Route exact path="/" component={Signin} />
-      //   <Route exact path="/welcome" component={Welcome} />
-      //   <Route exact path="/managerprojects" component={ManagerContainer} />
-      //   <Route exact path="/manageraddproject" component={ManagerAddProject} />
-      // </Router>
+      <Router>
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/" component={Signin} />
+        <Route exact path="/welcome" component={Welcome} />
+        <Route exact path="/managerprojects" component={ManagerContainer} />
+        <Route exact path="/manageraddworker" component={ManagerAddWorker} />
+        <Route exact path="/manageraddproject" component={ManagerAddProject} />
+      </Router>
     );
   }
 }

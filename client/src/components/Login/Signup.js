@@ -139,6 +139,7 @@ class Signup extends Component {
                     value={this.state.role}
                     onChange={this.handleChange}
                   >
+                    <option></option>
                     <option>Worker</option>
                     <option>Manager</option>
                   </Form.Control>
