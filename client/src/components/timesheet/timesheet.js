@@ -4,81 +4,49 @@ import Table from 'react-bootstrap/Table';
 import InfoBar from '../infobar/infobar';
 
 
-class TimeSheet extends React.Component {
+function TimeSheet() {
 
-    render(){
-        return(
-            <React.Fragment>
-                <InfoBar title="Time Sheet" />
-                <Container>
-                    <h3>Worker 1</h3>
-                    <a href="/add-timesheet">Add Work</a>
-                    <Table striped bordered hover variant="dark">
-                        <thead>
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        axios.get("/api/timesheet").then(response => {
+          console.log(response.data);
+          setData(response.data);
+        });
+      }, []);
+
+    return(
+        <React.Fragment>
+            <InfoBar title="Time Sheet" />
+            <Container>
+                <h3>Worker 1</h3>
+                <a href="/add-timesheet">Add Work</a>
+                <Table striped bordered hover variant="dark">
+                    <thead>
+                        <tr>
+                        <th>Project</th>
+                        <th>Work Assigned</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Hours</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {data.map(project => {
+                        return (
                             <tr>
-                            <th>Date</th>
-                            <th>Project</th>
-                            <th>Work Assigned</th>
-                            <th>Allotted Hours</th>
-                            <th>Hours Worked</th>
-                            <th>Current Status</th>
+                                <td>{project.project_name}</td>
+                                <td>{project.worked_assigned}</td>
+                                <td>{moment(project.start_date).format("MM-DD-YYYY")}</td>
+                                <td>{moment(project.end_date).format("MM-DD-YYYY")}</td>
+                                <td>{project.hours_worked}</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>10/11/2019</td>
-                                <td>Project 1</td>
-                                <td>Do template</td>
-                                <td>5</td>
-                                <td>7</td>
-                                <td>Pending</td>
-                            </tr>
-                            <tr>
-                                <td>10/15/2019</td>
-                                <td>Project 2</td>
-                                <td>Do template 2</td>
-                                <td>5</td>
-                                <td>7</td>
-                                <td>Completed</td>
-                            </tr>
-                        </tbody>
-                    </Table>
-                    <h3>Worker 2</h3>
-                    <a href="/add-timesheet">Add Work</a>
-                    <Table striped bordered hover variant="dark">
-                        <thead>
-                            <tr>
-                            <th>Date</th>
-                            <th>Project</th>
-                            <th>Work Assigned</th>
-                            <th>Allotted Hours</th>
-                            <th>Worked Hours</th>
-                            <th>Current Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>10/11/2019</td>
-                                <td>Project 1</td>
-                                <td>Do template</td>
-                                <td>5</td>
-                                <td>7</td>
-                                <td>Pending</td>
-                            </tr>
-                            <tr>
-                                <td>10/15/2019</td>
-                                <td>Project 2</td>
-                                <td>Do template 2</td>
-                                <td>5</td>
-                                <td>7</td>
-                                <td>Completed</td>
-                            </tr>
-                        </tbody>
-                    </Table>
-                </Container>
-            </React.Fragment>
-        )
-    }
+                        );
+                    })}
+                    </tbody>
+                </Table>
+            </Container>
+        </React.Fragment>
+    )
 }
 
 export default TimeSheet;
