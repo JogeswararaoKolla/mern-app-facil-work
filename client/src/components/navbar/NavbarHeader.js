@@ -10,7 +10,7 @@ function NavbarHeader(props) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <Nav.Item>{props.title + " " + props.managername}</Nav.Item>
+            <Nav.Item>{props.role + " " + props.managername}</Nav.Item>
             <Nav.Item>Sigin as {props.userName}</Nav.Item>
             <NavDropdown title="options" id="basic-nav-dropdown">
               <NavDropdown.Item>Timesheets</NavDropdown.Item>
