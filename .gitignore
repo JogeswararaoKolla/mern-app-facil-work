@@ -5,6 +5,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+.DS_Store
+client/.DS_Store
+client/src/.DS_Store
+
 # Runtime data
 pids
 *.pid
