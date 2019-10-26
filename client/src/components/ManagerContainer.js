@@ -6,7 +6,7 @@ function ManagerContainer(props) {
   return (
     <React.Fragment>
       <NavbarHeader
-        title={props.location.state.role}
+        role={props.location.state.role}
         managername={
           props.location.state.firstName + " " + props.location.state.lastName
         }
@@ -20,6 +20,7 @@ function ManagerContainer(props) {
           userName={props.location.state.userName}
           firstName={props.location.state.firstName}
           lastName={props.location.state.lastName}
+          role={props.location.state.role}
         />
       </Container>
     </React.Fragment>
