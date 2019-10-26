@@ -13,6 +13,7 @@ class Signup extends Component {
       password: "",
       role: "",
       message: "",
+      companyName: "",
       redirectTo: null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -41,7 +42,8 @@ class Signup extends Component {
               firstName: this.state.firstName,
               lastName: this.state.lastName,
               password: this.state.password,
-              role: this.state.role
+              role: this.state.role,
+              companyName: this.state.companyName
             })
             .then(response => {
               console.log(response);
@@ -116,6 +118,16 @@ class Signup extends Component {
                     name="password"
                     value={this.state.password}
                     onChange={this.handleChange}
+                    required
+                  ></Form.Control>
+                </Form.Group>
+                <Form.Group controlId="companyNameId">
+                  <Form.Label>Company Name :</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="companyName"
+                    onChange={this.handleChange}
+                    value={this.state.companyName}
                     required
                   ></Form.Control>
                 </Form.Group>

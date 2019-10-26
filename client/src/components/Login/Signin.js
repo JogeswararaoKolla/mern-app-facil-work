@@ -33,7 +33,9 @@ class Signin extends Component {
             console.log(response.data[0].password);
             this.setState({ userObject: response.data[0] });
             console.log(this.state);
-            this.setState({ redirectTo: "/welcome" });
+            this.setState({ redirectTo: "/managerprojects" });
+            // window.location.replace("/welcome");
+            // window.locaiton.replace  replaces the current path of the Applicaiton URL
           } else {
             this.setState({ message: "password not matching" });
           }

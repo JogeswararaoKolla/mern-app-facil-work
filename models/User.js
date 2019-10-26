@@ -7,8 +7,9 @@ const userSchema = new Schema({
   lastName: { type: String, required: true },
   password: { type: String, required: true },
   createdDate: { type: Date, default: Date.now },
-  role: { type: String, required: true },
-  loggedIn: { type: Boolean, default: false }
+  role: { type: String, default: "Worker" },
+  loggedIn: { type: Boolean, default: false },
+  companyName: { type: String, required: true }
 });
 
 const User = mongoose.model("User", userSchema);
