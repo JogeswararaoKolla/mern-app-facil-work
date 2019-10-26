@@ -7,6 +7,7 @@ import moment from "moment";
 function ManagerProjects(props) {
   const [data, setData] = useState([]);
   const [loadflag, setLoadflag] = useState(false);
+  const [workerdata, setWorkerdata] = useState([]);
 
   useEffect(() => {
     axios.get("/api/manager").then(response => {
@@ -15,8 +16,23 @@ function ManagerProjects(props) {
     });
   }, [loadflag]);
 
+  useEffect(() => {
+    axios.get("/api/worker/name/" + props.userName).then(response => {
+      console.log(response.data);
+      setWorkerdata(response.data);
+    });
+  }, [loadflag]);
+
   const handleDelete = id => {
     axios.delete("/api/manager/id/" + id).then(response => {
+      console.log(response);
+      setLoadflag(!loadflag);
+      console.log(loadflag);
+    });
+  };
+
+  const handleWorkerDelete = id => {
+    axios.delete("/api/worker/id/" + id).then(response => {
       console.log(response);
       setLoadflag(!loadflag);
       console.log(loadflag);
@@ -62,7 +78,59 @@ function ManagerProjects(props) {
                   <td>{project.status}</td>
                   <td>{project.workDescription}</td>
                   <td>
-                    <Button onClick={() => handleDelete(project._id)}>x</Button>
+                    <Button onClick={() => handleDelete(project._id)}>
+                      Delete
+                    </Button>
+                    <Link
+                      to={{
+                        pathname: "/manageraddworker",
+                        state: {
+                          userName: props.userName,
+                          projectName: project.projectName
+                        }
+                      }}
+                    >
+                      <Button className="btn btn-primary m-2">
+                        Add Worker
+                      </Button>
+                    </Link>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </Table>
+        <Table
+          style={{ fontFamily: "sanserif" }}
+          striped
+          bordered
+          hover
+          variant="light"
+        >
+          <thead style={{ backgroundColor: "gray" }}>
+            <tr>
+              <th>Project</th>
+              <th>Worker Name</th>
+              <th>Work Description</th>
+              <th>Labour Hours</th>
+              <th>Remarks</th>
+              <th>status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {workerdata.map(work => {
+              return (
+                <tr key={work._id}>
+                  <td>{work.projectName}</td>
+                  <td>{work.workerName}</td>
+                  <td>{work.workerDescription}</td>
+                  <td>{work.labourHours}</td>
+                  <td>{work.remarks}</td>
+                  <td>
+                    {work.status}
+                    <Button onClick={() => handleWorkerDelete(work._id)}>
+                      Delete
+                    </Button>
                   </td>
                 </tr>
               );

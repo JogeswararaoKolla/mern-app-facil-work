@@ -20,7 +20,7 @@ class InfoBar extends React.Component {
             <Nav.Link as="h5">{this.props.title}</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link as="h5">Manager Name</Nav.Link>
+            <Nav.Link as="h5">{this.props.managername}</Nav.Link>
           </Nav.Item>
         </Nav>
         <hr />
