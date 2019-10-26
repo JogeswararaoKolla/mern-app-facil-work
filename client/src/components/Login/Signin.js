@@ -92,7 +92,7 @@ class Signin extends Component {
                 <p className="text" style={{ color: "red" }}>
                   {this.state.message}
                 </p>
-                <Button variant="primary" type="submit">
+                <Button variant="secondary" type="submit">
                   Sign in
                 </Button>
 
@@ -101,7 +101,7 @@ class Signin extends Component {
                     pathname: "/signup"
                   }}
                 >
-                  <Button className="btn btn-primary m-2">
+                  <Button className="btn btn-secondary m-2">
                     Click here signup
                   </Button>
                 </Link>
