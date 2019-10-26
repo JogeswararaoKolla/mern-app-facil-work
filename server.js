@@ -4,6 +4,8 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const routes = require("./routes/index.js");
 
+require("dotenv").config();
+
 const PORT = process.env.PORT || 3001;
 
 // Use morgan logger for logging requests
@@ -18,12 +20,16 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/facilwork");
+mongoose.connect(process.env.MONGODB_URI || process.env.MONGODB_LOCAL);
 
 app.use(routes);
-app.get("/", function(req, res) {
-  res.send("Welcome to fasil-work");
+
+// Send every request to the React app
+// Define any API routes before this runs
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
 app.listen(PORT, function() {
   console.log("App is listening to port 3001");
 });

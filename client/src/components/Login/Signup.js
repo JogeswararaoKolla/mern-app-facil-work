@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Form, Button, Row, Col, Jumbotron } from "react-bootstrap";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 class Signup extends Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class Signup extends Component {
       password: "",
       role: "",
       message: "",
+      companyName: "",
       redirectTo: null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -41,7 +42,8 @@ class Signup extends Component {
               firstName: this.state.firstName,
               lastName: this.state.lastName,
               password: this.state.password,
-              role: this.state.role
+              role: this.state.role,
+              companyName: this.state.companyName
             })
             .then(response => {
               console.log(response);
@@ -119,6 +121,16 @@ class Signup extends Component {
                     required
                   ></Form.Control>
                 </Form.Group>
+                <Form.Group controlId="companyNameId">
+                  <Form.Label>Company Name :</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="companyName"
+                    onChange={this.handleChange}
+                    value={this.state.companyName}
+                    required
+                  ></Form.Control>
+                </Form.Group>
                 <Form.Group controlId="roleId">
                   <Form.Label>Role:</Form.Label>
                   <Form.Control
@@ -127,6 +139,7 @@ class Signup extends Component {
                     value={this.state.role}
                     onChange={this.handleChange}
                   >
+                    <option></option>
                     <option>Worker</option>
                     <option>Manager</option>
                   </Form.Control>
@@ -137,9 +150,15 @@ class Signup extends Component {
                 <Button variant="primary" type="submit">
                   Signup
                 </Button>
-                <p className="pt-2">
-                  Already have account click <a href="/">here</a>
-                </p>
+                <Link
+                  to={{
+                    pathname: "/"
+                  }}
+                >
+                  <Button className="btn btn-primary m-2">
+                    Already have account click
+                  </Button>
+                </Link>
               </Form>
             </Col>
             <Col md={3}></Col>

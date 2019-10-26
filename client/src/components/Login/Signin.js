@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Form, Button, Row, Col, Jumbotron } from "react-bootstrap";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Signin extends Component {
   constructor(props) {
@@ -33,7 +34,9 @@ class Signin extends Component {
             console.log(response.data[0].password);
             this.setState({ userObject: response.data[0] });
             console.log(this.state);
-            this.setState({ redirectTo: "/welcome" });
+            this.setState({ redirectTo: "/managerprojects" });
+            // window.location.replace("/welcome");
+            // window.locaiton.replace  replaces the current path of the Applicaiton URL
           } else {
             this.setState({ message: "password not matching" });
           }
@@ -92,9 +95,16 @@ class Signin extends Component {
                 <Button variant="primary" type="submit">
                   Sign in
                 </Button>
-                <p className="pt-2">
-                  Don't have account click <a href="/signup">here</a>
-                </p>
+
+                <Link
+                  to={{
+                    pathname: "/signup"
+                  }}
+                >
+                  <Button className="btn btn-primary m-2">
+                    Click here signup
+                  </Button>
+                </Link>
               </Form>
             </Col>
             <Col md={3}></Col>
