@@ -4,45 +4,49 @@ import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 
 
-class MatProcure extends React.Component {
+function MatProcure() {
 
-    render(){
-        return(
-            <React.Fragment>
-                <InfoBar title = "Material Procurement" />
-                <Container>
-                <a href="/add-material">Add Material</a>
-                <Table striped bordered hover variant="dark">
-                        <thead>
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        axios.get("/api/material").then(response => {
+          console.log(response.data);
+          setData(response.data);
+        });
+      }, []);
+    
+    return(
+        <React.Fragment>
+            <InfoBar title = "Material Procurement" />
+            <Container>
+            <a href="/add-material">Add Material</a>
+            <Table striped bordered hover variant="dark">
+                    <thead>
+                        <tr>
+                        <th>Project</th>
+                        <th>Work Assigned</th>
+                        <th>Deadline</th>
+                        <th>Material</th>
+                        <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {data.map(project => {
+                        return (
                             <tr>
-                            <th>Project</th>
-                            <th>Work Assigned</th>
-                            <th>Deadline</th>
-                            <th>Material</th>
-                            <th>Quantity</th>
+                                <td>{project.project_name}</td>
+                                <td>{project.worked_assigned}</td>
+                                <td>{moment(project.dead_line).format("MM-DD-YYYY")}</td>
+                                <td>{project.material}</td>
+                                <td>{project.quantity}</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Phoenix Hospital</td>
-                                <td>6 new rooms</td>
-                                <td>11/23/19</td>
-                                <td>Steel, metal, concrete</td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <td>Chandler Sidewalk</td>
-                                <td>300 ft</td>
-                                <td>11/15/19</td>
-                                <td>Concrete, assfault</td>
-                                <td>35</td>
-                            </tr>
-                        </tbody>
-                    </Table>
-                </Container>
-            </React.Fragment>
-        )
-    }
+                        );
+                    })}
+                    </tbody>
+                </Table>
+            </Container>
+        </React.Fragment>
+    )
 }
 
 export default MatProcure;

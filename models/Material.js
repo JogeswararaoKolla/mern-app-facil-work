@@ -7,7 +7,7 @@ const materialSchema = new Schema({
   work_assigned: { type: String, required: true },
   dead_line: { type: Date, required: true },
   material: { type: String, required: true },
-  hours_worked: { type: Number, required: true }
+  quantity: { type: Number, required: true }
 });
 
 const Material = mongoose.model("Material", materialSchema);
