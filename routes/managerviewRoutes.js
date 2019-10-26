@@ -9,7 +9,7 @@ router
 // router.get("/:username", managerviewController.find);
 
 router
-  .route("/:id")
+  .route("/id/:id")
   .delete(managerviewController.remove)
   .put(managerviewController.update);
 

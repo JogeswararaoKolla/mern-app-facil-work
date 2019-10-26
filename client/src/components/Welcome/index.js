@@ -1,11 +1,11 @@
 import React from "react";
-import NavbarHeader from "../navbar/navbar.js";
+import InfoBar from "../infobar/infobar.js";
 
 function Welcome(props) {
   console.log(props);
   return (
     <div>
-      <NavbarHeader />
+      <InfoBar />
       <h1>
         {props.location.state.userName} {props.location.state.role}{" "}
       </h1>

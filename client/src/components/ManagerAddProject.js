@@ -2,45 +2,38 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-import InfoBar from "../infobar/infobar";
+import InfoBar from "../components/infobar/infobar.js";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-class ManagerInputForm extends React.Component {
+class ManagerAddProject extends React.Component {
   state = {
-    project_name: "",
-    work_assigned: "",
-    worker: "",
-    dead_line: "",
-    hours_alloted: "",
-    userslist: []
+    projectName: "",
+    workDescription: "",
+    deadLine: "",
+    hoursAlloted: ""
   };
   handleClick = e => {
     e.preventDefault();
-    console.log(e);
     console.log(this.state);
-    const managerProject = {
-      project_name: this.state.project_name,
-      work_assigned: this.state.work_assigned,
-      worker: this.state.worker,
-      dead_line: this.state.dead_line,
-      hours_alloted: this.state.hours_alloted
-    };
+    console.log(this.props);
     axios
-      .post("/api/manager", managerProject)
-      .then(response => console.log(response))
-      .catch(error => console.log(error));
-  };
-
-  componentDidMount() {
-    axios
-      .get("/api/users/")
+      .post("/api/manager", {
+        ...this.state,
+        userName: this.props.location.state.userName
+      })
       .then(response => {
+        console.log(response.data);
+        alert("Project created!");
         this.setState({
-          userslist: response.data.map(userObj => userObj.username)
+          projectName: "",
+          workDescription: "",
+          deadLine: "",
+          hoursAlloted: ""
         });
       })
       .catch(error => console.log(error));
-  }
+  };
 
   handleInputChange = event => {
     event.preventDefault();
@@ -58,60 +51,44 @@ class ManagerInputForm extends React.Component {
       <React.Fragment>
         <InfoBar title="Manager Input View" />
         <Container>
-          <Form.Group controlId="project_name">
+          <Form.Group controlId="projectNameId">
             <Form.Label>Project Name</Form.Label>
             <Form.Control
               type="text"
-              name="project_name"
-              value={this.state.name}
+              name="projectName"
+              value={this.state.projectName}
               onChange={this.handleInputChange}
               placeholder="Enter Project Name"
             />
           </Form.Group>
 
-          <Form.Group controlId="work_assigned">
-            <Form.Label>Work Assigned</Form.Label>
+          <Form.Group controlId="workDescriptionId">
+            <Form.Label>Work Description</Form.Label>
             <Form.Control
               type="text"
-              name="work_assigned"
-              value={this.state.work_assigned}
+              name="workDescription"
+              value={this.state.workDescription}
               onChange={this.handleInputChange}
               placeholder="Enter Description"
             />
           </Form.Group>
 
-          <Form.Group controlId="worker">
-            <Form.Label>Worker</Form.Label>
-            <Form.Control
-              as="select"
-              type="text"
-              name="worker"
-              value={this.state.worker}
-              onChange={this.handleInputChange}
-              placeholder="Enter Team Member"
-            >
-              {this.state.userslist.map(user => (
-                <option> {user}</option>
-              ))}
-            </Form.Control>
-          </Form.Group>
-
-          <Form.Group controlId="deadline">
+          <Form.Group controlId="deadLineId">
             <Form.Label>Deadline</Form.Label>
             <Form.Control
               type="date"
-              name="dead_line"
-              value={this.state.dead_line}
+              name="deadLine"
+              value={this.state.deadLine}
               onChange={this.handleInputChange}
             />
           </Form.Group>
 
-          <Form.Group controlId="hours_alloted">
+          <Form.Group controlId="hoursAllotedId">
             <Form.Label>Hours Alloted</Form.Label>
             <Form.Control
               type="number"
-              name="hours_alloted"
-              value={this.state.hours_alloted}
+              name="hoursAlloted"
+              value={this.state.hoursAlloted}
               onChange={this.handleInputChange}
               placeholder="Enter man hours estimated to complete task"
             />
@@ -120,10 +97,18 @@ class ManagerInputForm extends React.Component {
           <Button variant="primary" type="submit" onClick={this.handleClick}>
             Add to Project list
           </Button>
+          <Link
+            to={{
+              pathname: "/managerprojects",
+              state: { userName: this.props.location.state.userName }
+            }}
+          >
+            <Button className="btn btn-primary m-2">Projects</Button>
+          </Link>
         </Container>
       </React.Fragment>
     );
   }
 }
 
-export default ManagerInputForm;
+export default ManagerAddProject;
