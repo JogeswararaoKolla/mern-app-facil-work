@@ -48,7 +48,8 @@ function ManagerProjects(props) {
             state: {
               userName: props.userName,
               firstName: props.firstName,
-              lastName: props.lastName
+              lastName: props.lastName,
+              role: props.role
             }
           }}
         >
@@ -94,7 +95,8 @@ function ManagerProjects(props) {
                           userName: props.userName,
                           projectName: project.projectName,
                           firstName: props.firstName,
-                          lastName: props.lastName
+                          lastName: props.lastName,
+                          role: props.role
                         }
                       }}
                     >

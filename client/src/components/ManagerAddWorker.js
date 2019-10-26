@@ -141,7 +141,8 @@ class ManagerAddWorker extends Component {
                 state: {
                   userName: this.props.location.state.userName,
                   firstName: this.props.location.state.firstName,
-                  lastName: this.props.location.state.lastName
+                  lastName: this.props.location.state.lastName,
+                  role: this.props.location.state.role
                 }
               }}
             >
