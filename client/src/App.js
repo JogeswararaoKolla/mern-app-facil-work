@@ -14,6 +14,7 @@ import TimeSheetForm from "./components/timesheet-form/timesheet-form.js";
 import ManagerInputForm from "./components/ManagerInput/index.js";
 import MatProcurmentForm from "./components/matprocurment-form/matprocurment-form";
 import Manager1 from "./components/Manager1/index";
+import Manager2 from "./components/Manager2/index";
 
 class App extends Component {
   state = {
@@ -27,6 +28,9 @@ class App extends Component {
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/" component={Signin} />
         <Route exact path="/welcome" component={Welcome} />
+        <Route exact path="/manager-input" component={ManagerInputForm} />
+        <Route exact path="/manager1" component={Manager1} />
+        <Route exact path="/manager2" component={Manager2} />
       </Router>
     );
   }

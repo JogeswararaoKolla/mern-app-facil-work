@@ -83,16 +83,16 @@ class ManagerInputForm extends React.Component {
           <Form.Group controlId="worker">
             <Form.Label>Worker</Form.Label>
             <Form.Control
-              as="select"
+              // as="select"
               type="text"
               name="worker"
               value={this.state.worker}
               onChange={this.handleInputChange}
               placeholder="Enter Team Member"
             >
-              {this.state.userslist.map(user => (
-                <option> {user}</option>
-              ))}
+              {/* {this.state.userslist.map(user => ( */}
+                {/* <option> {user}</option> */}
+              {/* ))} */}
             </Form.Control>
           </Form.Group>
 

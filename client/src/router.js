@@ -4,6 +4,7 @@ import TimeSheet from './components/timesheet/timesheet';
 import MatProcure from './components/matprocure/matprocure';
 import Manager1 from './components/Manager1/index.js';
 import Manager2 from './components/Manager2/index.js';
+import ManagerInputForm from './components/ManagerInput/index.js';
 import Welcome from './components/Welcome/index';
 import Signup from './components/Signup-Login/sign-up';
 import LoginForm from './components/Signup-Login/login-form';
