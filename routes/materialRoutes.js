@@ -7,7 +7,7 @@ router
   .post(materialController.create);
 
 router
-  .route("/material/:id")
+  .route("/:id")
   .delete(materialController.remove)
   .put(materialController.update);
 

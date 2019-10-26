@@ -7,7 +7,7 @@ router
   .post(timesheetController.create);
 
 router
-  .route("/ts/:id")
+  .route("/:id")
   .delete(timesheetController.remove)
   .put(timesheetController.update);
 
