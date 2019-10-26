@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, Container } from "react-bootstrap";
+import { Button, Form, Container, Jumbotron } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -68,6 +68,9 @@ class ManagerAddWorker extends Component {
     return (
       <div>
         <Container>
+          <Jumbotron>
+            <h3 className="text-center">Manager add Worker View</h3>
+          </Jumbotron>
           <Form>
             <Form.Group controlId="workerNameId">
               <Form.Label>Worker Name:</Form.Label>
@@ -125,16 +128,24 @@ class ManagerAddWorker extends Component {
                 placeholder="Enter remarks here"
               />
             </Form.Group>
-            <Button variant="primary" type="submit" onClick={this.handleClick}>
+            <Button
+              variant="secondary"
+              type="submit"
+              onClick={this.handleClick}
+            >
               Add worker
             </Button>
             <Link
               to={{
                 pathname: "/managerprojects",
-                state: { userName: this.props.location.state.userName }
+                state: {
+                  userName: this.props.location.state.userName,
+                  firstName: this.props.location.state.firstName,
+                  lastName: this.props.location.state.lastName
+                }
               }}
             >
-              <Button className="btn btn-primary m-2">Projects</Button>
+              <Button className="btn btn-secondary m-2">Projects</Button>
             </Link>
           </Form>
         </Container>

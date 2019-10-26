@@ -147,7 +147,7 @@ class Signup extends Component {
                 <p className="text" style={{ color: "red" }}>
                   {this.state.message}
                 </p>
-                <Button variant="primary" type="submit">
+                <Button variant="secondary" type="submit">
                   Signup
                 </Button>
                 <Link
@@ -155,7 +155,7 @@ class Signup extends Component {
                     pathname: "/"
                   }}
                 >
-                  <Button className="btn btn-primary m-2">
+                  <Button className="btn btn-secondary m-2">
                     Already have account click
                   </Button>
                 </Link>
