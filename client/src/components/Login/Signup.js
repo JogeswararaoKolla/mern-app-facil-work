@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Form, Button, Row, Col, Jumbotron } from "react-bootstrap";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 class Signup extends Component {
   constructor(props) {
@@ -150,9 +150,15 @@ class Signup extends Component {
                 <Button variant="primary" type="submit">
                   Signup
                 </Button>
-                <p className="pt-2">
-                  Already have account click <a href="/">here</a>
-                </p>
+                <Link
+                  to={{
+                    pathname: "/"
+                  }}
+                >
+                  <Button className="btn btn-primary m-2">
+                    Already have account click
+                  </Button>
+                </Link>
               </Form>
             </Col>
             <Col md={3}></Col>
