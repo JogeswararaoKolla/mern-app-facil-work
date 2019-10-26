@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import InfoBar from '../infobar/infobar';
+import axios from "axios";
 
 class MatProcurmentForm extends React.Component {
 
@@ -18,7 +19,21 @@ class MatProcurmentForm extends React.Component {
         e.preventDefault();
         console.log(e);
         console.log(this.state);
+        const materialProcurement = {
+          project_name: this.state.project_name,
+          work_assigned: this.state.work_assigned,
+          dead_line: this.state.dead_line,
+          material: this.state.material,
+          quantity: this.state.quantity
+        };
+        axios
+          .post("/api/material", materialProcurement)
+          .then(response => console.log(response))
+          .catch(error => console.log(error));
       };
+    
+    // componentDidMount() {
+    // }
 
     handleInputChange = event => {
         event.preventDefault();

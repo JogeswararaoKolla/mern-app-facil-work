@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import InfoBar from "../infobar/infobar";
+import axios from "axios";
 
 class TimeSheetForm extends React.Component {
   state = {
@@ -12,10 +13,22 @@ class TimeSheetForm extends React.Component {
     end_date: "",
     hours_worked: 0
   };
+
   handleClick = e => {
     e.preventDefault();
     console.log(e);
     console.log(this.state);
+    const timesheetForm = {
+      project_name: this.state.project_name,
+      work_assigned: this.state.work_assigned,
+      start_date: this.state.start_date,
+      end_date: this.state.end_date,
+      hours_worked: this.state.hours_worked
+    };
+    axios
+      .post("/api/timesheet", timesheetForm)
+      .then(response => console.log(response))
+      .catch(error => console.log(error));
   };
 
   handleInputChange = event => {
@@ -55,11 +68,6 @@ class TimeSheetForm extends React.Component {
               placeholder="Enter Description"
             />
           </Form.Group>
-
-          {/* <Form.Group controlId="allotted_hours">
-            <Form.Label>Alloted Hours</Form.Label>
-            <Form.Control type="number" />
-          </Form.Group> */}
 
           <Form.Group controlId="start_date">
             <Form.Label>Start Date</Form.Label>
